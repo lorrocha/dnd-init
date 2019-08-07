@@ -1,0 +1,156 @@
+/* Layout Grid */
+$main-color: #1daec0;
+$active-main-color: #056a77;
+$second-color: white;
+
+.container-grid {
+  display: grid;
+  grid-template-columns: [column1] 15% [column2] auto [column3] auto [column4] auto [column5] 15% [column6];
+  grid-template-rows: [row1] 30% [row2] auto [row3] auto [row4] auto [row5] 10% [row6];
+  grid-template-areas:
+   "header header header header header"
+   "left-margin stuff stuff stuff right-margin"
+   "left-margin stuff stuff stuff right-margin"
+   "left-margin stuff stuff stuff right-margin"
+   "left-margin stuff stuff stuff right-margin";
+  height: 100vh;
+}
+
+.container-box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.container-left {
+  grid-area: left-margin;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-header {
+  grid-area: header;
+}
+
+.container-bod {
+  grid-area: stuff;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  transition: all 0.3s cubic-bezier(.53,.01,.35,1.5);
+}
+
+.container-right {
+  grid-area: right-margin;
+  width: 100%;
+}
+
+.add-participant {
+   grid-column: column2 / column3;
+   grid-row: row5 / row6;
+}
+
+.next {
+   grid-column: column3 / column4;
+   grid-row: row5 / row6;
+}
+
+.end {
+   grid-column: column4 / column5;
+   grid-row: row5 / row6;
+}
+
+.tracker-controls {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 1.8em;
+  background-color: $main-color;
+  color: $second-color;
+  font-weight: bold;
+  margin: 5px 0;
+  transition: all 0.3s cubic-bezier(.53,.01,.35,1.5);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:hover {
+    background-color: $active-main-color;
+    cursor: pointer;
+  }
+
+  &.active {
+    background-image: linear-gradient( 45deg, $main-color, $active-main-color);
+    color: $second-color;
+  }
+}
+
+.close-form {
+  padding: 10px;
+  background-color: $main-color;
+  color: $second-color;
+  font-size: 1.2em;
+  transition: all 0.3s cubic-bezier(.53,.01,.35,1.5);
+
+  &:hover {
+    background-color: $active-main-color;
+    cursor: pointer;
+  }
+}
+
+/* Table stuff */
+
+#participant-list {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+th {
+  padding: 10px;
+  border-bottom: 3px solid black;
+}
+
+table td {
+  border: 3px solid black;
+  border-top: none;
+  border-bottom: none;
+  padding: 10px;
+}
+
+thead tr {
+  background-color: white!important;
+}
+
+tr.active-player {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Rainbow flag */
+/* red */
+tr:nth-child(6n+1) {
+  background-color: #ffb8b8;
+}
+/* orange */
+tr:nth-child(6n+2) {
+  background-color: #ffd7c4;
+}
+/* yellow */
+tr:nth-child(6n+3) {
+  background-color: #feffe0;
+}
+/* green */
+tr:nth-child(6n+4) {
+  background-color: #e3f8e8;
+}
+/* blue */
+tr:nth-child(6n+5) {
+  background-color: #d7e8fc;
+}
+/* purple */
+tr:nth-child(6n+6) {
+  background-color: #f6d7fa;
+}

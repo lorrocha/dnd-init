@@ -1,0 +1,14 @@
+.current-player {
+  display: grid;
+  grid-template-columns: [column1] 400px [column2] auto [column3] auto [column4] auto [column5] auto [column6] auto [column7];
+  grid-template-rows: [row1] auto [row2] auto [row3];
+  height: 100%;
+}
+
+.statblock {
+  border: 2px solid black;
+}
+
+.pname {
+  border: none;
+}
